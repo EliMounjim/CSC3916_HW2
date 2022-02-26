@@ -40,29 +40,6 @@ function getJSONObjectForMovieRequirement(req) {
 
     return json;
 }
-// router.route('/post')
-//     .post(authController.isAuthenticated, function(req, res) {
-//             console.log(req.body);
-//             res = res.status(200);
-//             if (req.get('Content-Type')) {
-//                 console.log("Content-Type: " + req.get('Content-Type'));
-//                 res   = res.type(req.get('Content-Type'));
-//             }
-//             res.send(req.body);
-//         }
-//     );
-//
-// router.route('/movies')
-//     .post(authController.isAuthenticated, function(req, res) {
-//             console.log(req.body);
-//             res = res.status(200);
-//             if (req.get('Content-Type')) {
-//                 console.log("Content-Type: " + req.get('Content-Type'));
-//                 res   = res.type(req.get('Content-Type'));
-//             }
-//             res.send(req.body);
-//         }
-//     );
 
 
 router.post('/signup', function(req, res) {
@@ -140,6 +117,10 @@ router.route('/testcollection')
         res.json(o);
     }
     );
+
+router.route('/', function(req, res){
+    res.send("Error: HTTP Method not supported");
+});
 
 app.use('/', router);
 app.listen(process.env.PORT || 8080);
